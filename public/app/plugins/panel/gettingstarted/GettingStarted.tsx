@@ -6,6 +6,7 @@ import { getDatasourceSrv } from 'app/features/plugins/datasource_srv';
 import { getBackendSrv } from 'app/core/services/backend_srv';
 import { contextSrv } from 'app/core/core';
 import { getDashboardSrv } from 'app/features/dashboard/services/DashboardSrv';
+import { translate } from '../../../locale/translator';
 
 interface Step {
   title: string;
@@ -143,7 +144,7 @@ export class GettingStarted extends PureComponent<PanelProps, State> {
   render() {
     const { checksDone } = this.state;
     if (!checksDone) {
-      return <div>checking...</div>;
+      return <div>{translate("checking...")}</div>;
     }
 
     return (
@@ -155,14 +156,14 @@ export class GettingStarted extends PureComponent<PanelProps, State> {
           {this.steps.map((step, index) => {
             return (
               <div key={index} className={step.done ? 'progress-step completed' : 'progress-step active'}>
-                <a className="progress-link" href={step.href} target={step.target} title={step.note}>
+                <a className="progress-link" href={step.href} target={step.target} title={translate(step.note)}>
                   <span className="progress-marker">
                     <i className={step.icon} />
                   </span>
-                  <span className="progress-text">{step.title}</span>
+                  <span className="progress-text">{translate(step.title)}</span>
                 </a>
                 <a className="btn-small progress-step-cta" href={step.href} target={step.target}>
-                  {step.cta}
+                  {translate(step.cta)}
                 </a>
               </div>
             );

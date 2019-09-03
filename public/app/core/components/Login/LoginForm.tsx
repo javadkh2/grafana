@@ -1,5 +1,6 @@
 import React, { PureComponent, SyntheticEvent, ChangeEvent } from 'react';
 import { FormModel } from './LoginCtrl';
+import { translate } from '../../../locale/translator';
 
 interface Props {
   displayForgotPassword: boolean;
@@ -71,7 +72,7 @@ export class LoginForm extends PureComponent<Props, State> {
             name="user"
             className="gf-form-input login-form-input"
             required
-            placeholder={this.props.loginHint}
+            placeholder={translate(this.props.loginHint)}
             aria-label="Username input field"
             onChange={this.onChangeUsername}
           />
@@ -84,7 +85,7 @@ export class LoginForm extends PureComponent<Props, State> {
             required
             ng-model="formModel.password"
             id="inputPassword"
-            placeholder={this.props.passwordHint}
+            placeholder={translate(this.props.passwordHint)}
             aria-label="Password input field"
             onChange={this.onChangePassword}
           />
@@ -98,11 +99,11 @@ export class LoginForm extends PureComponent<Props, State> {
               onClick={this.onSubmit}
               disabled={!this.state.valid}
             >
-              Log In
+              {translate("Log In")}
             </button>
           ) : (
             <button type="submit" className="btn btn-large p-x-2 btn-inverse btn-loading">
-              Logging In<span>.</span>
+              {translate("Logging In")}<span>.</span>
               <span>.</span>
               <span>.</span>
             </button>
@@ -110,7 +111,7 @@ export class LoginForm extends PureComponent<Props, State> {
 
           {this.props.displayForgotPassword ? (
             <div className="small login-button-forgot-password">
-              <a href="user/password/send-reset-email">Forgot your password?</a>
+              <a href="user/password/send-reset-email">{translate("Forgot your password?")}</a>
             </div>
           ) : null}
         </div>

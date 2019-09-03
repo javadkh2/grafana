@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { Select } from '@grafana/ui';
 import { SelectableValue } from '@grafana/data';
 import { Variable } from 'app/types/templates';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   onChange: (value: string) => void;
@@ -81,8 +82,8 @@ export class MetricSelect extends React.Component<Props, State> {
         options={options}
         isSearchable={isSearchable}
         maxMenuHeight={500}
-        placeholder={placeholder}
-        noOptionsMessage={() => 'No options found'}
+        placeholder={translate(placeholder)}
+        noOptionsMessage={() => translate("No options found")}
         value={selectedOption}
       />
     );

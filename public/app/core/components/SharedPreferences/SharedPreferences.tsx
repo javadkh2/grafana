@@ -4,6 +4,7 @@ import { FormLabel, Select } from '@grafana/ui';
 
 import { DashboardSearchHit, DashboardSearchHitType } from 'app/types';
 import { getBackendSrv } from 'app/core/services/backend_srv';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   resourceUri: string;
@@ -109,9 +110,9 @@ export class SharedPreferences extends PureComponent<Props, State> {
 
     return (
       <form className="section gf-form-group" onSubmit={this.onSubmitForm}>
-        <h3 className="page-heading">Preferences</h3>
+        <h3 className="page-heading">{translate("Preferences")}</h3>
         <div className="gf-form">
-          <span className="gf-form-label width-11">UI Theme</span>
+          <span className="gf-form-label width-11">{translate("UI Theme")}</span>
           <Select
             isSearchable={false}
             value={themes.find(item => item.value === theme)}
@@ -123,9 +124,9 @@ export class SharedPreferences extends PureComponent<Props, State> {
         <div className="gf-form">
           <FormLabel
             width={11}
-            tooltip="Not finding dashboard you want? Star it first, then it should appear in this select box."
+            tooltip={translate("Not finding dashboard you want? Star it first, then it should appear in this select box.")}
           >
-            Home Dashboard
+            {translate("Home Dashboard")}
           </FormLabel>
           <Select
             value={dashboards.find(dashboard => dashboard.id === homeDashboardId)}
@@ -138,7 +139,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
           />
         </div>
         <div className="gf-form">
-          <label className="gf-form-label width-11">Timezone</label>
+          <label className="gf-form-label width-11">{translate("Timezone")}</label>
           <Select
             isSearchable={false}
             value={timezones.find(item => item.value === timezone)}
@@ -149,7 +150,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
         </div>
         <div className="gf-form-button-row">
           <button type="submit" className="btn btn-primary">
-            Save
+            {translate("Save")}
           </button>
         </div>
       </form>

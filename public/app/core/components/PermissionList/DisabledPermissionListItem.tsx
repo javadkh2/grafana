@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Select } from '@grafana/ui';
 import { dashboardPermissionLevels } from 'app/types/acl';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   item: any;
@@ -17,16 +18,16 @@ export default class DisabledPermissionListItem extends Component<Props, any> {
           <i style={{ width: '25px', height: '25px' }} className="gicon gicon-shield" />
         </td>
         <td style={{ width: '90%' }}>
-          {item.name}
-          <span className="filter-table__weak-italic"> (Role)</span>
+          {translate(item.name)}
+          <span className="filter-table__weak-italic"> {translate("(Role)")}</span>
         </td>
         <td />
-        <td className="query-keyword">Can</td>
+        <td className="query-keyword">{translate("Can")}</td>
         <td>
           <div className="gf-form">
             <Select
               options={dashboardPermissionLevels}
-              onChange={() => {}}
+              onChange={() => { }}
               isDisabled={true}
               className="gf-form-select-box__control--menu-right"
               value={currentPermissionLevel}

@@ -1,5 +1,6 @@
 ﻿import React, { FC } from 'react';
 import { Tooltip } from '@grafana/ui';
+import { translate } from '../../../locale/translator';
 
 interface Props {
   appName: string;
@@ -17,17 +18,17 @@ export const Footer: FC<Props> = React.memo(
           <ul>
             <li>
               <a href="http://docs.grafana.org" target="_blank">
-                <i className="fa fa-file-code-o" /> Docs
+                <i className="fa fa-file-code-o" /> {translate("Docs")}
               </a>
             </li>
             <li>
               <a href="https://grafana.com/services/support" target="_blank">
-                <i className="fa fa-support" /> Support Plans
+                <i className="fa fa-support" /> {translate("Support Plans")}
               </a>
             </li>
             <li>
               <a href="https://community.grafana.com/" target="_blank">
-                <i className="fa fa-comments-o" /> Community
+                <i className="fa fa-comments-o" /> {translate("Community")}
               </a>
             </li>
             <li>
@@ -42,7 +43,7 @@ export const Footer: FC<Props> = React.memo(
               <li>
                 <Tooltip placement="auto" content={newGrafanaVersion}>
                   <a href="https://grafana.com/get" target="_blank">
-                    New version available!
+                    {translate("New version available!")}
                   </a>
                 </Tooltip>
               </li>

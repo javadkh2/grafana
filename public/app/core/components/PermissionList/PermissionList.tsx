@@ -3,6 +3,7 @@ import PermissionsListItem from './PermissionListItem';
 import DisabledPermissionsListItem from './DisabledPermissionListItem';
 import { FolderInfo } from 'app/types';
 import { DashboardAcl } from 'app/types/acl';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   items: DashboardAcl[];
@@ -41,7 +42,7 @@ class PermissionList extends PureComponent<Props> {
           {isFetching === true && items.length < 1 ? (
             <tr>
               <td colSpan={4}>
-                <em>Loading permissions...</em>
+                <em>{translate("Loading permissions...")}</em>
               </td>
             </tr>
           ) : null}
@@ -49,7 +50,7 @@ class PermissionList extends PureComponent<Props> {
           {isFetching === false && items.length < 1 ? (
             <tr>
               <td colSpan={4}>
-                <em>No permissions are set. Will only be accessible by admins.</em>
+                <em>{translate("No permissions are set. Will only be accessible by admins.")}</em>
               </td>
             </tr>
           ) : null}

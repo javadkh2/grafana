@@ -3,6 +3,7 @@ import appEvents from '../../app_events';
 import TopSection from './TopSection';
 import BottomSection from './BottomSection';
 import config from 'app/core/config';
+import { translate } from '../../../locale/translator';
 
 const homeUrl = config.appSubUrl || '/';
 
@@ -20,7 +21,7 @@ export class SideMenu extends PureComponent {
         <i className="fa fa-bars" />
         <span className="sidemenu__close">
           <i className="fa fa-times" />
-          &nbsp;Close
+          &nbsp;{translate("Close")}
         </span>
       </div>,
       <TopSection key="topsection" />,

@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { AsyncSelect } from '@grafana/ui';
 import { debounce } from 'lodash';
 import { getBackendSrv } from 'app/core/services/backend_srv';
+import { translate } from '../../../locale/translator';
 
 export interface Team {
   id: number;
@@ -69,8 +70,8 @@ export class TeamPicker extends Component<Props, State> {
           loadOptions={this.debouncedSearch}
           onChange={onSelected}
           className={className}
-          placeholder="Select a team"
-          noOptionsMessage={() => 'No teams found'}
+          placeholder={translate("Select a team")}
+          noOptionsMessage={() => translate("No teams found")}
         />
       </div>
     );

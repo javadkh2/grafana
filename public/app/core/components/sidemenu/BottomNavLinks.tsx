@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import appEvents from '../../app_events';
 import { User } from '../../services/context_srv';
 import { NavModelItem } from '@grafana/data';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   link: NavModelItem;
@@ -37,7 +38,7 @@ class BottomNavLinks extends PureComponent<Props> {
         <ul className="dropdown-menu dropdown-menu--sidemenu" role="menu">
           {link.subTitle && (
             <li className="sidemenu-subtitle">
-              <span className="sidemenu-item-text">{link.subTitle}</span>
+              <span className="sidemenu-item-text">{translate(link.subTitle)}</span>
             </li>
           )}
           {link.showOrgSwitcher && (
@@ -45,11 +46,11 @@ class BottomNavLinks extends PureComponent<Props> {
               <a onClick={this.switchOrg}>
                 <div>
                   <div className="sidemenu-org-switcher__org-name">{user.orgName}</div>
-                  <div className="sidemenu-org-switcher__org-current">Current Org:</div>
+                  <div className="sidemenu-org-switcher__org-current">{translate("Current Org:")}</div>
                 </div>
                 <div className="sidemenu-org-switcher__switch">
                   <i className="fa fa-fw fa-random" />
-                  Switch
+                  {translate("Switch")}
                 </div>
               </a>
             </li>
@@ -69,7 +70,7 @@ class BottomNavLinks extends PureComponent<Props> {
               return null;
             })}
           <li className="side-menu-header">
-            <span className="sidemenu-item-text">{link.text}</span>
+            <span className="sidemenu-item-text">{translate(link.text)}</span>
           </li>
         </ul>
       </div>

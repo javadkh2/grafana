@@ -1,5 +1,6 @@
 import React, { ChangeEvent, forwardRef } from 'react';
 import { Input, FormLabel } from '@grafana/ui';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   label: string;
@@ -9,7 +10,7 @@ export interface Props {
 
 export const PasswordInput = forwardRef<HTMLInputElement, Props>((props, ref) => (
   <>
-    <FormLabel className="width-8">{props.label}</FormLabel>
+    <FormLabel className="width-8">{translate(props.label)}</FormLabel>
     <Input
       className="gf-form-input max-width-22"
       type="password"

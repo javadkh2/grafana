@@ -1,6 +1,7 @@
 import React, { PureComponent, SyntheticEvent, ChangeEvent } from 'react';
 import { Tooltip } from '@grafana/ui';
 import appEvents from 'app/core/app_events';
+import { translate } from '../../../locale/translator';
 
 interface Props {
   onSubmit: (pw: string) => void;
@@ -77,11 +78,10 @@ export class ChangePassword extends PureComponent<Props, State> {
     return (
       <div className="login-inner-box" id="change-password-view">
         <div className="text-left login-change-password-info">
-          <h5>Change Password</h5>
-          Before you can get started with awesome dashboards we need you to make your account more secure by changing
-          your password.
+          <h5>{translate("Change Password")}</h5>
+          {translate("Before you can get started with awesome dashboards we need you to make your account more secure by changing your password.")}
           <br />
-          You can change your password again later.
+          {translate("You can change your password again later.")}
         </div>
         <form className="login-form-group gf-form-group">
           <div className="login-form">
@@ -91,7 +91,7 @@ export class ChangePassword extends PureComponent<Props, State> {
               name="newPassword"
               className="gf-form-input login-form-input"
               required
-              placeholder="New password"
+              placeholder={translate("New password")}
               onChange={this.onNewPasswordChange}
               ref={input => {
                 this.userInput = input;
@@ -105,17 +105,17 @@ export class ChangePassword extends PureComponent<Props, State> {
               className="gf-form-input login-form-input"
               required
               ng-model="command.confirmNew"
-              placeholder="Confirm new password"
+              placeholder={translate("Confirm new password")}
               onChange={this.onConfirmPasswordChange}
             />
           </div>
           <div className="login-button-group login-button-group--right text-right">
             <Tooltip
               placement="bottom"
-              content="If you skip you will be prompted to change password next time you login."
+              content={translate("If you skip you will be prompted to change password next time you login.")}
             >
               <a className="btn btn-link" onClick={this.onSkip}>
-                Skip
+                {translate("Skip")}
               </a>
             </Tooltip>
 
@@ -125,7 +125,7 @@ export class ChangePassword extends PureComponent<Props, State> {
               onClick={this.onSubmit}
               disabled={!this.state.valid}
             >
-              Save
+              {translate("Save")}
             </button>
           </div>
         </form>

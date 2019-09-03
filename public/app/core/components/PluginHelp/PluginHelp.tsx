@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { renderMarkdown } from '@grafana/data';
 import { getBackendSrv } from '@grafana/runtime';
+import { translate } from '../../../locale/translator';
 
 interface Props {
   plugin: {
@@ -67,11 +68,11 @@ export class PluginHelp extends PureComponent<Props, State> {
     const { isError, isLoading, help } = this.state;
 
     if (isLoading) {
-      return <h2>Loading help...</h2>;
+      return <h2>{translate("Loading help...")}</h2>;
     }
 
     if (isError) {
-      return <h3>'Error occurred when loading help'</h3>;
+      return <h3>{translate("Error occurred when loading help")}</h3>;
     }
 
     if (type === 'panel_help' && help === '') {

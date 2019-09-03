@@ -8,6 +8,8 @@ import { SelectableValue } from '@grafana/data';
 // Types
 import { DataSourceSelectItem } from '@grafana/ui';
 
+import { translate } from '../../../locale/translator';
+
 export interface Props {
   onChange: (ds: DataSourceSelectItem) => void;
   datasources: DataSourceSelectItem[];
@@ -62,8 +64,8 @@ export class DataSourcePicker extends PureComponent<Props> {
           onBlur={onBlur}
           openMenuOnFocus={openMenuOnFocus}
           maxMenuHeight={500}
-          placeholder="Select datasource"
-          noOptionsMessage={() => 'No datasources found'}
+          placeholder={translate("Select datasource")}
+          noOptionsMessage={() => translate("No datasources found")}
           value={value}
         />
       </div>

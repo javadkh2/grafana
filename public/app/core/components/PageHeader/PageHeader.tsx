@@ -2,6 +2,7 @@ import React, { FormEvent } from 'react';
 import classNames from 'classnames';
 import appEvents from 'app/core/app_events';
 import { NavModel, NavModelItem, NavModelBreadcrumb } from '@grafana/data';
+import { translate } from '../../../locale/translator';
 
 export interface Props {
   model: NavModel;
@@ -35,7 +36,7 @@ const SelectNav = ({ main, customCss }: { main: NavModelItem; customCss: string 
           }
           return (
             <option key={navItem.url} value={navItem.url}>
-              {navItem.text}
+              {translate(navItem.text)}
             </option>
           );
         })}
@@ -61,7 +62,7 @@ const Tabs = ({ main, customCss }: { main: NavModelItem; customCss: string }) =>
           <li className="gf-tabs-item" key={tab.url}>
             <a className={tabClasses} target={tab.target} href={tab.url}>
               <i className={tab.icon} />
-              {tab.text}
+              {translate(tab.text)}
             </a>
           </li>
         );
@@ -95,7 +96,7 @@ export default class PageHeader extends React.Component<Props, any> {
     }
 
     if (!breadcrumbs || breadcrumbs.length === 0) {
-      return <h1 className="page-header__title">{title}</h1>;
+      return <h1 className="page-header__title">{translate(title)}</h1>;
     }
 
     const breadcrumbsResult = [];
@@ -103,14 +104,14 @@ export default class PageHeader extends React.Component<Props, any> {
       if (bc.url) {
         breadcrumbsResult.push(
           <a className="text-link" key={breadcrumbsResult.length} href={bc.url}>
-            {bc.title}
+            {translate(bc.title)}
           </a>
         );
       } else {
-        breadcrumbsResult.push(<span key={breadcrumbsResult.length}> / {bc.title}</span>);
+        breadcrumbsResult.push(<span key={breadcrumbsResult.length}> / {translate(bc.title)}</span>);
       }
     }
-    breadcrumbsResult.push(<span key={breadcrumbs.length + 1}> / {title}</span>);
+    breadcrumbsResult.push(<span key={breadcrumbs.length + 1}> / {translate(title)}</span>);
 
     return <h1 className="page-header__title">{breadcrumbsResult}</h1>;
   }
@@ -125,7 +126,7 @@ export default class PageHeader extends React.Component<Props, any> {
 
         <div className="page-header__info-block">
           {this.renderTitle(main.text, main.breadcrumbs)}
-          {main.subTitle && <div className="page-header__sub-title">{main.subTitle}</div>}
+          {main.subTitle && <div className="page-header__sub-title">{translate(main.subTitle)}</div>}
         </div>
       </div>
     );

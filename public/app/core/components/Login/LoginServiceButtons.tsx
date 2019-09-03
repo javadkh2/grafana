@@ -1,5 +1,6 @@
 import React from 'react';
 import config from 'app/core/config';
+import { translate } from '../../../locale/translator';
 
 const loginServices: () => LoginServices = () => ({
   saml: {
@@ -58,7 +59,7 @@ export const LoginServiceButtons = () => {
         target="_self"
       >
         <i className={`btn-service-icon fa fa-${service.icon ? service.icon : key}`} />
-        Sign in with {service.name}
+        {translate("Sign in with")} {service.name}
       </a>
     ) : null;
   });

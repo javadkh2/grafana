@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { connectWithStore } from 'app/core/utils/connectWithReduxStore';
 import { StoreState } from 'app/types';
+import { translate } from '../../../locale/translator';
 
 export const SignIn: FC<any> = ({ url }) => {
   const loginUrl = `login?redirect=${encodeURIComponent(url)}`;
@@ -14,7 +15,7 @@ export const SignIn: FC<any> = ({ url }) => {
       <a href={loginUrl} target="_self">
         <ul className="dropdown-menu dropdown-menu--sidemenu" role="menu">
           <li className="side-menu-header">
-            <span className="sidemenu-item-text">Sign In</span>
+            <span className="sidemenu-item-text">{translate("Sign In")}</span>
           </li>
         </ul>
       </a>

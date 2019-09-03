@@ -4,6 +4,7 @@ import tinycolor from 'tinycolor2';
 import { SearchQuery } from './search';
 import { css, cx } from 'emotion';
 import { ThemeContext, GrafanaTheme, selectThemeVariant } from '@grafana/ui';
+import { translate } from '../../../locale/translator';
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
@@ -78,7 +79,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({ query, 
 
         <input
           type="text"
-          placeholder="Find dashboards by name"
+          placeholder={translate("Find dashboards by name")}
           value={query.query}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
             onChange(event.currentTarget.value);

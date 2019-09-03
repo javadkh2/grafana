@@ -12,6 +12,8 @@ import { getBackendSrv } from 'app/core/services/backend_srv';
 // Types
 import { User } from 'app/types';
 
+import { translate } from '../../../locale/translator';
+
 export interface Props {
   onSelected: (user: User) => void;
   className?: string;
@@ -71,8 +73,8 @@ export class UserPicker extends Component<Props, State> {
           defaultOptions={true}
           loadOptions={this.debouncedSearch}
           onChange={onSelected}
-          placeholder="Select user"
-          noOptionsMessage={() => 'No users found'}
+          placeholder={translate("Select user")}
+          noOptionsMessage={() => translate("No users found")}
         />
       </div>
     );

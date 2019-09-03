@@ -3,6 +3,7 @@ import { Select } from '@grafana/ui';
 import { SelectableValue } from '@grafana/data';
 import { dashboardPermissionLevels, DashboardAcl, PermissionLevel } from 'app/types/acl';
 import { FolderInfo } from 'app/types';
+import { translate } from '../../../locale/translator';
 
 const setClassNameHelper = (inherited: boolean) => {
   return inherited ? 'gf-form-disabled' : '';
@@ -24,12 +25,12 @@ function ItemAvatar({ item }: { item: DashboardAcl }) {
 
 function ItemDescription({ item }: { item: DashboardAcl }) {
   if (item.userId) {
-    return <span className="filter-table__weak-italic">(User)</span>;
+    return <span className="filter-table__weak-italic">{translate("(User)")}</span>;
   }
   if (item.teamId) {
-    return <span className="filter-table__weak-italic">(Team)</span>;
+    return <span className="filter-table__weak-italic">{translate("(Team)")}</span>;
   }
-  return <span className="filter-table__weak-italic">(Role)</span>;
+  return <span className="filter-table__weak-italic">{translate("(Role)")}</span>;
 }
 
 interface Props {
@@ -59,20 +60,20 @@ export default class PermissionsListItem extends PureComponent<Props> {
           <ItemAvatar item={item} />
         </td>
         <td style={{ width: '90%' }}>
-          {item.name} <ItemDescription item={item} />
+          {translate(item.name)} <ItemDescription item={item} />
         </td>
         <td>
           {item.inherited && folderInfo && (
             <em className="muted no-wrap">
-              Inherited from folder{' '}
+              {translate("Inherited from folder")}{' '}
               <a className="text-link" href={`${folderInfo.url}/permissions`}>
-                {folderInfo.title}
+                {translate(folderInfo.title)}
               </a>{' '}
             </em>
           )}
-          {inheritedFromRoot && <em className="muted no-wrap">Default Permission</em>}
+          {inheritedFromRoot && <em className="muted no-wrap">{translate("Default Permission")}</em>}
         </td>
-        <td className="query-keyword">Can</td>
+        <td className="query-keyword">{translate("Can")}</td>
         <td>
           <div className="gf-form">
             <Select
@@ -91,10 +92,10 @@ export default class PermissionsListItem extends PureComponent<Props> {
               <i className="fa fa-remove" />
             </a>
           ) : (
-            <button className="btn btn-inverse btn-small">
-              <i className="fa fa-lock" />
-            </button>
-          )}
+              <button className="btn btn-inverse btn-small">
+                <i className="fa fa-lock" />
+              </button>
+            )}
         </td>
       </tr>
     );
