@@ -19,9 +19,12 @@ export function Translator(vocabulary: Vocabs) {
       console.log(new Error().stack);
       return key;
     }
+    if (!key) {
+      return key;
+    }
     const term = key.toLowerCase();
     if (!dictionary[term]) {
-      console.log("add -> " + key);
+      console.log("add -> " + key + " <-");
       console.log(new Error().stack);
       return key;
     }
